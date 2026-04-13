@@ -1,0 +1,27 @@
+food_name,meal_type,diet_type
+Vegetable Omelette,Breakfast,Low Carb
+Avocado Toast,Breakfast,Low Carb
+Greek Yogurt Bowl,Breakfast,High Protein
+Boiled Eggs,Breakfast,High Protein
+Oats with Fruits,Breakfast,Balanced
+Idli with Sambar,Breakfast,Heart Healthy
+Ragi Porridge,Breakfast,Diabetic
+
+Grilled Chicken Salad,Lunch,Low Carb
+Paneer Stir Fry,Lunch,Low Carb
+Brown Rice with Dal,Lunch,Balanced
+Vegetable Khichdi,Lunch,Heart Healthy
+Grilled Fish,Lunch,High Protein
+Quinoa Bowl,Lunch,Diabetic
+
+Fruit Bowl,Snack,Balanced
+Roasted Nuts,Snack,High Protein
+Apple Slices,Snack,Low Carb
+Sprouts Chaat,Snack,Heart Healthy
+Yogurt Cup,Snack,Diabetic
+
+Vegetable Soup,Dinner,Low Carb
+Grilled Paneer,Dinner,High Protein
+Chapati with Curry,Dinner,Balanced
+Steamed Vegetables,Dinner,Heart Healthy
+Millet Upma,Dinner,Diabetic
