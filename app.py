@@ -30,7 +30,6 @@ tab1, tab2, tab3 = st.tabs([
     "AI HealthPredictor"
 ])
 
-# ---------------- TAB 1 ----------------
 with tab1:
 
     st.header("Health Profile")
@@ -82,7 +81,6 @@ with tab1:
 
         st.success(f"Predicted Diet: **{diet}**")
 
-# ---------------- TAB 2 ----------------
 with tab2:
 
     if not st.session_state.diet_type:
@@ -126,9 +124,6 @@ with tab2:
             unsafe_allow_html=True
             )
                 
-
-
-# ---------------- TAB 3 ----------------
 from google_fit_data import fetch_health_data
 from health_score import calculate_health_score
 from health_prediction import predict_future_health
@@ -137,8 +132,6 @@ import streamlit as st
 with tab3:
 
     st.header("Google Fit Health Dashboard")
-
-    # ✅ Add key to avoid duplicate button error
     if st.button("Sync Google Fit Data", key="sync_btn"):
 
         df = fetch_health_data()
@@ -146,17 +139,10 @@ with tab3:
         df["health_score"] = df.apply(calculate_health_score, axis=1)
         
         latest = df.iloc[-1]
-
-        # 🔥 STORE DATA INTO DATABASE (BACKGROUND ONLY)
-        # 🔥 STORE FULL DATAFRAME
         latest["date"] = pd.to_datetime(latest["date"]).strftime("%Y-%m-%d")
 
         create_table()
-
-        # ✅ PASS ONLY ONE ROW
         insert_latest(latest)
-
-        # 🔽 YOUR ORIGINAL UI (UNCHANGED)
 
         col1, col2, col3, col4 = st.columns(4)
 
@@ -203,29 +189,18 @@ with tab3:
         st.dataframe(df)
 
         st.subheader("Health Score Trend")
-
-    # 🔥 fetch from database
         history = fetch_data()
 
         if not history.empty:
-
-        # convert date column
             history["date"] = pd.to_datetime(history["date"])
-
-        # sort by date
             history = history.sort_values("date")
-
-        # set date as index
             history = history.set_index("date")
-
-        # plot
             st.line_chart(history["health_score"])
 
         else:
             st.warning("No historical data available")
 
         future = predict_future_health(df)
-
         st.success(
         f"Predicted Health Score in 3 Days: {future}"
         )
