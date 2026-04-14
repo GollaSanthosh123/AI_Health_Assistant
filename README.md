@@ -81,3 +81,9 @@ The system aims to bridge the gap between static diet plans and dynamic, real-ti
 ## 🏗️ System Architecture
 
 User Input (Health Data) ↓ Machine Learning Model (XGBoost) ↓ Diet Prediction ↓ Google Fit API → Health Data ↓ Health Score Calculation ↓ SQLite Database (Storage) ↓ Trend Analysis + Future Prediction ↓ Meal Recommendation (API)
+
+<img width="1378" height="2254" alt="image" src="https://github.com/user-attachments/assets/45145b93-18b2-417f-b7d3-fe31e4cae5b4" />
+<img width="690" height="1507" alt="image" src="https://github.com/user-attachments/assets/7b76468d-e3bd-439f-a581-ef6e3c799b28" />
+<img width="1067" height="1600" alt="image" src="https://github.com/user-attachments/assets/305adc4d-0bb4-4e01-9a79-0fff8d172ae0" />
+
+
