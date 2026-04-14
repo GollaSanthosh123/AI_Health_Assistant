@@ -24,8 +24,6 @@ def create_table():
 def insert_data(date, steps, heart_points, calories, health_score):
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
-
-    # prevent duplicate (same date)
     c.execute("""
     INSERT OR REPLACE INTO health_data VALUES (?, ?, ?, ?, ?)
     """, (date, steps, heart_points, calories, health_score))
@@ -54,11 +52,7 @@ def insert_dataframe(df):
 def insert_latest(row):
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
-
-    # 🔥 DELETE old entry of same date
     c.execute("DELETE FROM health_data WHERE date = ?", (row["date"],))
-
-    # 🔥 INSERT fresh
     c.execute("""
     INSERT INTO health_data (date, steps, heart_points, calories, health_score)
     VALUES (?, ?, ?, ?, ?)
